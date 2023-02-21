@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = [
+            {
+                value: 0,
+                type:'number'
+            },
+            {
+                value: ',',
+                type:'symbol'
+            },
+            {
+                value: '=',
+                type: 'symbol'
+            },
+            {
+                value: '+',
+                type: 'symbol'
+            },
+            {
+                value: 1,
+                type: 'number'
+            },
+            {
+                value: 2,
+                type: 'number'
+            },
+            {
+                value: 3,
+                type: 'number'
+            },
+            {
+                value: '-',
+                type: 'symbol'
+            },
+            {
+                value: 4,
+                type: 'number'
+            },
+
+            {
+                value: 5,
+                type: 'number'
+            },
+            {
+                value: 6,
+                type: 'number'
+            },
+            {
+                value: 'x',
+                type: 'symbol'
+            },
+            {
+                value: 7,
+                type: 'number'
+            },
+            {
+                value: 8,
+                type: 'number'
+            },
+            {
+                value: 9,
+                type: 'number'
+            },
+            {
+                value: '/',
+                type: 'symbol'
+            },
+            {
+                value: 'AC',
+                type: 'symbol'
+            },
+            {
+                value:'C',
+                type: 'symbol'
+            },
+            {
+                value: '+/-',
+                type: 'symbol'
+            },
+            {
+                value: '%',
+                type: 'symbol'
+            },
+            
+        ]
+
+        function createCalc(array){
+            const calc = document.createElement('div');
+            calc.setAttribute('class', 'calc')
+            const display = document.createElement('div');
+            display.setAttribute('class', 'display')
+            const fragment = new DocumentFragment();
+            for (const el of array) {
+                const button = document.createElement('button')
+                button.setAttribute('class', el.type)
+                button.textContent = el.value
+                fragment.append(button);
+                if (fragment.childElementCount === 4) {
+                    const calcRow = document.createElement('div');
+                    calcRow.setAttribute('class', 'calcRow');
+                    calcRow.append(fragment)
+                    calc.prepend(calcRow)
+                }
+            }
+            calc.prepend(display)
+            document.body.prepend(calc)
+        }
+        createCalc(array)
+    </script>
+</body>
+</html>
